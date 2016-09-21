@@ -7,12 +7,12 @@ gulp.task("default", function () {
         script: "app.js",
         delayTime: 1,
         env: {
-            PORT: 8080
+            PORT: 8888
         },
         ignore: ["./node_modules/**"],
         watch: jsFiles
     }
- 
+
     return nodemon(options)
         .on("restat", function (ev) {
             console.log("Restarting....  ");
