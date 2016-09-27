@@ -25,6 +25,6 @@ gulp.task("test", function () {
             read: false
         })
         .pipe(gulpMocha({
-            reporter: "nyan"
+            //reporter: "nyan"
         }))
 });

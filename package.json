@@ -1,35 +1,36 @@
 {
-    "name": "eat-better-server",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "directories": {
-        "test": "tests"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node app.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hader-araujo/eat-better-node.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/hader-araujo/eat-better-node/issues"
-    },
-    "homepage": "https://github.com/hader-araujo/eat-better-node#readme",
-    "dependencies": {
-        "body-parser": "^1.15.2",
-        "express": "^4.14.0",
-        "gulp": "^3.9.1",
-        "gulp-nodemon": "^2.1.0",
-        "mongoose": "^4.6.1"
-    },
-    "devDependencies": {
-        "gulp-mocha": "^3.0.1",
-        "should": "^11.1.0",
-        "sinon": "^1.17.6"
-    }
+  "name": "eat-better-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hader-araujo/eat-better-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hader-araujo/eat-better-node/issues"
+  },
+  "homepage": "https://github.com/hader-araujo/eat-better-node#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "mongoose": "^4.6.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp-mocha": "^3.0.1",
+    "should": "^11.1.0",
+    "sinon": "^1.17.6"
+  }
 }

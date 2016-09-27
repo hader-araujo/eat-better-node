@@ -1,37 +1,25 @@
-function userValidation(req, res, user) {
-
-    if (!req.body.name) {
-        res.status(400);
-        res.send("Name is required");
-        return false;
-    }
-
-    if (!req.body.login) {
-        res.status(400);
-        res.send("Login is required");
-        return false;
-    }
-
-    return true;
-
-}
-
 var userController = function (UserModel) {
+    var _ = require("underscore")._;
+    var self = this;
 
-    var post = function (req, res) {
-        var user = new UserModel(req.body);
+    //// --------------HTTP methods--------------////
+    this.post = function (req, res) {
+        _.extend(this, req.body);
 
-        if (!userValidation(req, res)) {
-            return;
+        var errorValidation = self.getErrorValidation();
+        if (errorValidation) {
+            res.status(400);
+            res.send(errorValidation);
         }
-
-        user.save();
-        res.status(201);
-        res.send(user);
+        else {
+            var user = new UserModel(req.body);
+            user.save();
+            res.status(201);
+            res.send(user);
+        }
     };
 
-    var get = function (req, res) {
-
+    this.get = function (req, res) {
         var query = {};
         if (req.query.name) {
             query.name = req.query.name;
@@ -44,12 +32,25 @@ var userController = function (UserModel) {
                 res.json(users);
             }
         });
-
     };
 
-    return {
-        post: post,
-        get: get
+    //// --------------validations--------------////
+    this.nameIsValid = function () {
+        return this.name && this.name.length >= 10;
+    };
+
+    this.loginIsValid = function () {
+        return this.login && this.login.length >= 5;
+    };
+
+    this.getErrorValidation = function () {
+        if (!this.nameIsValid()) {
+            return "Name is required";
+        }
+        if (!this.loginIsValid()) {
+            return "Login is required";
+        }
+        return false;
     };
 };
 
