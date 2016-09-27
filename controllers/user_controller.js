@@ -4,9 +4,9 @@ var userController = function (UserModel) {
 
     //// --------------HTTP methods--------------////
     this.post = function (req, res) {
-        _.extend(this, req.body);
+        _.extend(self, req.body);
 
-        var errorValidation = self.getErrorValidation();
+        var errorValidation = self.getValidationMessage();
         if (errorValidation) {
             res.status(400);
             res.send(errorValidation);
@@ -36,18 +36,17 @@ var userController = function (UserModel) {
 
     //// --------------validations--------------////
     this.nameIsValid = function () {
-        return this.name && this.name.length >= 10;
+        return self.name && self.name.length >= 10;
     };
 
     this.loginIsValid = function () {
-        return this.login && this.login.length >= 5;
+        return self.login && self.login.length >= 5;
     };
-
-    this.getErrorValidation = function () {
-        if (!this.nameIsValid()) {
+    this.getValidationMessage = function () {
+        if (!self.nameIsValid()) {
             return "Name is required";
         }
-        if (!this.loginIsValid()) {
+        if (!self.loginIsValid()) {
             return "Login is required";
         }
         return false;
