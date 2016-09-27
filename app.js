@@ -11,7 +11,7 @@ require("./models/db_connect");
 
 var express = require("express");
 var app = express();
-var port = process.env.PORT;
+var port = process.env.PORT || 3000;
 
 bodyParser(app);
 
